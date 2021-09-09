@@ -1,0 +1,47 @@
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-content scrollEvents="true" [appHideHeader]="hideheader" (ionScroll)="onScroll($event)">
+  
+  <ion-row class="info-row" #hideheader>
+    
+    <ion-col size="8">
+      <p class="name">Hola, {{ user?.data?.name }}</p>
+      <p class="info">Bienvenido a App(xxx)</p>
+    </ion-col>
+    <ion-col size="4" class="ion-padding-start">
+      <img [src]="user?.data?.img">
+    </ion-col>
+    
+  </ion-row>
+ 
+  <ion-row class="sticky-row">
+    <ion-col size="12" class="ion-no-padding">
+      <ion-item class="toggle-content" detail="false">
+        <ion-toggle item-start color="primary" [checked]="online_profile==1? true : false" class="toggle-status" (ionChange)="myChangeStatus($event)"></ion-toggle> <!--disabled-->  
+        <ion-label color="light" *ngIf="online_profile==1">Estás conectado</ion-label>
+        <ion-label color="light" *ngIf="online_profile==0">Estás desconectado</ion-label>
+      </ion-item>
+    </ion-col>
+    
+  </ion-row>
+
+
+
+  <div *ngIf="show_data">
+    <ion-list *ngFor="let item of data_list; let i = index">
+      <ion-item button detail="false">
+        <ion-label>
+          <h2 text-wrap class="text-bold">{{ item.nombre }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+
+</ion-content>

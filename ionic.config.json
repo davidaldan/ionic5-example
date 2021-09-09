@@ -1,0 +1,7 @@
+{
+  "name": "glooping_admin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
